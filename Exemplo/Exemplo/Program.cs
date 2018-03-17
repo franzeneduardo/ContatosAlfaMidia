@@ -35,10 +35,39 @@ namespace Exemplo
 
             EscreveDiferencaIdade(idadeDaMae, idade);
 
+            Console.WriteLine("\n------------\n");
+
+            var pessoa = new Pessoa();
+            pessoa.Nome = "Pedro";
+            pessoa.Sobrenome = "Santana";
+            pessoa.Cpf = "12345678900";
+
+            pessoa.Telefones = new List<Telefone>();
+            //telefones
+            AdicionarTelefone(pessoa, "+55 51 9999-9999");
+            AdicionarTelefone(pessoa, "+55 51 1234-5678");
+
+
+            Console.WriteLine($"Telefone 1 {pessoa.Telefones[0].Numero}");
+            Console.WriteLine($"Telefone 2 {pessoa.Telefones[1].Numero}");
+
+
+
+
+            Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.Cpf}");
+
             Console.ReadKey();
 
 
         }
+
+        public static void AdicionarTelefone(Pessoa pessoa, string telefone)
+        {
+            var objetoTelefone = new Telefone();
+            objetoTelefone.Numero = telefone;
+            pessoa.Telefones.Add(objetoTelefone);
+        }
+
         static string NomeCompleto (string primeiro, string sobrenome)
         {
             return primeiro + " " + sobrenome; 
